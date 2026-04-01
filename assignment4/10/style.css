@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #5f7dbb;
+}
+
+.container {
+    margin: 50px;
+    background: #eee;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.container h1 {
+    text-align: center;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    position: relative;
+    height: 180px;
+    border-radius: 12px;
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-size: cover;
+    background-position: center;
+}
+
+.card:nth-child(1) {
+    background-image: url('https://images.pexels.com/photos/46148/aircraft-jet-landing-cloud-46148.jpeg');
+}
+
+.coffee-fruit .card:nth-child(1) {
+    background-image: url('https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg');
+}
+
+.coffee-fruit .card:nth-child(2) {
+    background-image: url('https://images.pexels.com/photos/1132047/pexels-photo-1132047.jpeg');
+}
+
+.card-container .card:nth-child(3) {
+    background-image: url('https://images.pexels.com/photos/18105/pexels-photo.jpg');
+}
+
+.nature-interior .card:nth-child(1) {
+    background-image: url('https://images.pexels.com/photos/210186/pexels-photo-210186.jpeg');
+}
+
+.nature-interior .card:nth-child(2) {
+    background-image: url('https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg');
+}
+
+.card h2 {
+    font-size: 20px;
+}
+
+.card button {
+    width: 100px;
+    padding: 6px;
+    font-size: 12px;
+    border: 1px solid white;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+}
+
+.coffee-fruit,
+.nature-interior {
+    display: flex;
+    gap: 20px;
+}
+
+.coffee-fruit .card,
+.nature-interior .card {
+    width: 50%;
+}
+
+@media (max-width: 768px) {
+
+    .container {
+        margin: 20px;
+    }
+
+    .coffee-fruit,
+    .nature-interior {
+        flex-direction: column;
+    }
+
+    .coffee-fruit .card,
+    .nature-interior .card {
+        width: 100%;
+    }
+
+    .card {
+        height: 160px;
+    }
+
+    .container h3 {
+        font-size: 20px;
+    }
+}

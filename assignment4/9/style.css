@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #111;
+    height: 100vh;
+}
+
+.containter {
+    height: 100%;
+    background: white;
+}
+
+.hero-section {
+    background: linear-gradient(to right, #ff7a18, #ff3d77, #8f5fd7, #00d4c7);
+    color: white;
+    padding: 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo svg {
+    width: 40px;
+}
+
+.logo h1 {
+    font-size: 20px;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.link-container ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.link-container a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.right button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+}
+
+.hero-content {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.hero-content h1 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.hero-content p {
+    font-size: 14px;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.hero-content div {
+    margin-top: 20px;
+}
+
+.hero-content input {
+    padding: 12px;
+    width: 300px;
+    border-radius: 8px;
+    border: none;
+}
+
+.hero-content button {
+    padding: 12px 20px;
+    border: none;
+    background: #1e90ff;
+    color: white;
+    border-radius: 6px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding: 40px 20px;
+    background: #eee;
+}
+
+.card {
+    width: 200px;
+}
+
+.card img {
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 16px;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+
+    nav {
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .link-container ul {
+        display: none;
+    }
+
+    .hero-content h1 {
+        font-size: 24px;
+    }
+
+    .hero-content div {
+        display: none;
+    }
+
+    main {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
