@@ -1,0 +1,20 @@
+.tiles-container {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  gap: 10px;
+}
+
+.tile {
+  width: 100px;
+  height: 100px;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tile.hidden {
+  background: #0051a1;
+  color: transparent;
+}
