@@ -1,0 +1,10 @@
+.home{
+    background-image: url('../../assets/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.hero-section{
+    padding: 150px 0;
+}
