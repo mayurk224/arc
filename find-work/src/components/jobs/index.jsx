@@ -10,6 +10,9 @@ const Jobs = () => {
   const [allVal, setAllVal] = useState({
     jobs: [],
     user: {},
+    employmentType: [],
+    minSalary: "",
+    search: "",
   })
 
   const [loading, setLoading] = useState({
@@ -19,7 +22,8 @@ const Jobs = () => {
 
   useEffect(() => {
     const getAllJobs = async () => {
-      const api = "https://apis.ccbp.in/jobs"
+      const { employmentType, minSalary, search } = allVal
+      const api = `https://apis.ccbp.in/jobs?employment_type=${employmentType.join(",")}&min_salary=${minSalary}&search=${search}`
       const token = Cookie.get("token")
 
       const options = {
@@ -76,7 +80,16 @@ const Jobs = () => {
 
     getUserInfo()
     getAllJobs()
-  }, [])
+  }, [
+    allVal.search,
+  ])
+
+  const handleSearch = (e) => {
+    if (e.key === "Enter") {
+      setAllVal({ ...allVal, search: e.target.value })
+      e.target.value = ""
+    }
+  }
 
   return (
     <div>
@@ -110,7 +123,12 @@ const Jobs = () => {
                 <circle cx="11" cy="11" r="8"></circle>
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
-              <input type="search" placeholder="Search jobs by title, company, or location..." className="search-input" />
+              <input
+                type="search"
+                onKeyDown={handleSearch}
+                placeholder="Search jobs by title, company, or location"
+                className="search-input"
+              />
             </div>
           </div>
           <div className="job-cards-container">
@@ -124,6 +142,7 @@ const Jobs = () => {
                 <div className="no-jobs-icon">🔍</div>
                 <h3>No jobs found</h3>
                 <p>Try adjusting your filters or search terms</p>
+                <button onClick={handleSearch} className="search-btn">Search</button>
               </div>
             ) : (
               allVal.jobs.map(job => (
