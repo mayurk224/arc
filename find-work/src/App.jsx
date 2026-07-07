@@ -5,6 +5,7 @@ import AuthPage from './components/auth'
 import Jobs from './components/jobs'
 import NotFoundPage from './components/notFound'
 import ProtectedRoute from './components/protectedRoute'
+import JobDetails from './components/job-details'
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Route path="/signin" element={<AuthPage />} />
       <Route path="/signup" element={<AuthPage />} />
       <Route path="/jobs" element={<ProtectedRoute><Jobs /></ProtectedRoute>} />
+      <Route path="/jobs/:id" element={<ProtectedRoute><JobDetails /></ProtectedRoute>} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   )
