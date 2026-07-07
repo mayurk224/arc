@@ -1,9 +1,17 @@
 import React from 'react'
 import './index.css'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import logo from '../../assets/logo.png'
+import Cookies from 'js-cookie'
 
 const Header = () => {
+    const navigate = useNavigate()
+
+    const handleLogout = () => {
+        Cookies.remove('token')
+        navigate('/signin')
+    }
+
     return (
         <nav className="navbar navbar-expand-lg">
             <div className="container-fluid">
@@ -26,7 +34,7 @@ const Header = () => {
                         </li>
 
                     </ul>
-                    <button type="button" className="btn btn-outline-danger btn-sm">Logout</button>
+                    <button type="button" className="btn btn-outline-danger btn-sm" onClick={handleLogout}>Logout</button>
                 </div>
             </div>
         </nav>
