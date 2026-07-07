@@ -23,7 +23,19 @@ const Jobs = () => {
   useEffect(() => {
     const getAllJobs = async () => {
       const { employmentType, minSalary, search } = allVal
-      const api = `https://apis.ccbp.in/jobs?employment_type=${employmentType.join(",")}&min_salary=${minSalary}&search=${search}`
+      const params = new URLSearchParams()
+
+      if (employmentType.length > 0) {
+        params.append('employment_type', employmentType.join(','))
+      }
+      if (minSalary) {
+        params.append('minimum_package', minSalary)
+      }
+      if (search) {
+        params.append('search', search)
+      }
+
+      const api = `https://apis.ccbp.in/jobs?${params.toString()}`
       const token = Cookie.get("token")
 
       const options = {
@@ -82,13 +94,30 @@ const Jobs = () => {
     getAllJobs()
   }, [
     allVal.search,
+    allVal.employmentType,
+    allVal.minSalary
   ])
 
   const handleSearch = (e) => {
     if (e.key === "Enter") {
       setAllVal({ ...allVal, search: e.target.value })
-      e.target.value = ""
     }
+  }
+
+  const handleJobType = (value, checked) => {
+    setAllVal(prev => {
+      let updatedTypes
+      if (checked) {
+        updatedTypes = [...prev.employmentType, value]
+      } else {
+        updatedTypes = prev.employmentType.filter(type => type !== value)
+      }
+      return { ...prev, employmentType: updatedTypes }
+    })
+  }
+
+  const handleSalaryRange = (value) => {
+    setAllVal(prev => ({ ...prev, minSalary: value }))
   }
 
   return (
@@ -113,7 +142,12 @@ const Jobs = () => {
             )
           }
           <div className="filter">
-            <FilterSection />
+            <FilterSection
+              jobType={handleJobType}
+              salaryRange={handleSalaryRange}
+              selectedEmploymentTypes={allVal.employmentType}
+              selectedSalaryRange={allVal.minSalary}
+            />
           </div>
         </div>
         <div className="jobs-listing col-md-8">
@@ -142,7 +176,6 @@ const Jobs = () => {
                 <div className="no-jobs-icon">🔍</div>
                 <h3>No jobs found</h3>
                 <p>Try adjusting your filters or search terms</p>
-                <button onClick={handleSearch} className="search-btn">Search</button>
               </div>
             ) : (
               allVal.jobs.map(job => (
