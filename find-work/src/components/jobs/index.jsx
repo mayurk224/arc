@@ -48,7 +48,6 @@ const Jobs = () => {
       try {
         const response = await fetch(api, options)
         const data = await response.json()
-        console.log(data)
         if (response.ok) {
           setAllVal(prev => ({
             ...prev,
@@ -76,7 +75,6 @@ const Jobs = () => {
       try {
         const response = await fetch(api, options)
         const data = await response.json()
-        console.log(data)
         if (response.ok) {
           setAllVal(prev => ({
             ...prev,
