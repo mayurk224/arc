@@ -1,0 +1,31 @@
+body{
+    transition: background-color 0.3s ease;
+}
+
+.container{
+    display: flex;
+}
+
+.btn-div{
+    padding: 10px;
+    margin: 10px;
+    height: 100px;
+    width: 100px;
+    text-align: center;
+}
+
+.white{
+    background-color: #ffffff;
+}
+
+.green{
+    background-color: #00ff00;
+}
+
+.blue{
+    background-color: #0000ff;
+}
+
+.red{
+    background-color: #ff0000;
+}
