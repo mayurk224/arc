@@ -1,15 +1,15 @@
-const form = document.querySelector('form');
-const todoInput = document.getElementById('todo-item');
-const todoList = document.getElementById('todo-list');
+let todoListData = [{ 
+        text: "Learn HTML" 
+    }, 
+    { 
+        text: "Learn CSS" 
+    }, 
+    { 
+        text: "Learn JavaScript" 
+    } 
+];
 
-form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const todoText = todoInput.value.trim();
-    if (todoText === '') return;
-
-    addTodo(todoText);
-    todoInput.value = '';
-});
+const todoListEl = document.getElementById('todo-list');
 
 function addTodo(text) {
     const li = document.createElement('li');
@@ -18,7 +18,7 @@ function addTodo(text) {
         <span class="todo-text">${text}</span>
         <button class="delete-btn">Delete</button>
     `;
-    todoList.appendChild(li);
+    todoListEl.appendChild(li);
 
     const checkbox = li.querySelector('.todo-checkbox');
     const todoTextSpan = li.querySelector('.todo-text');
@@ -36,3 +36,10 @@ function addTodo(text) {
         li.remove();
     });
 }
+
+// Render todos when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    todoListData.forEach(todo => {
+        addTodo(todo.text);
+    });
+});
