@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Multiplayer Bidding Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>DOM Multiplayer Bidding Game</h1>
+
+        <div class="game-info">
+            <div class="prize-pool">Prize Pool: <span id="prizePool">0</span> Credits</div>
+            <div class="lucky-number" id="luckyNumber" style="display: none;">Lucky Number: <span id="luckyNum"></span>
+            </div>
+        </div>
+
+        <div class="players-container" id="playersContainer"></div>
+
+        <button class="reset-btn" id="resetBtn" style="display: none;">Start Next Round</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
