@@ -1,25 +1,15 @@
-document.querySelector('form').addEventListener('submit', function (e) {
-    e.preventDefault();
+let recipeObj = {
+    title: "Tomato Pasta",
+    imgSrc: "https://images.pexels.com/photos/35123972/pexels-photo-35123972.jpeg",
+    ingredients: ["Pasta", "Oil", "Onions", "Salt", "Tomato Pasta Sauce", "Cheese"]
+};
 
-    const dishName = document.getElementById('dish-name-input').value.trim();
-    const imageUrl = document.getElementById('image-url-input').value.trim();
-    const ingredientsInput = document.getElementById('ingredients-input').value.trim();
+document.getElementById('dish-name-display').textContent = recipeObj.title;
+document.getElementById('dish-image-display').src = recipeObj.imgSrc;
 
-    const ingredients = ingredientsInput
-        .split(',')
-        .map(ingredient => ingredient.trim())
-        .filter(ingredient => ingredient !== '');
-
-    document.getElementById('dish-name-display').textContent = dishName;
-    document.getElementById('dish-image-display').src = imageUrl;
-
-    const ingredientsList = document.getElementById('ingredients-list');
-    ingredientsList.innerHTML = '';
-    ingredients.forEach(ingredient => {
-        const li = document.createElement('li');
-        li.textContent = ingredient;
-        ingredientsList.appendChild(li);
-    });
-
-    document.getElementById('dish-card').style.display = 'block';
+const ingredientsList = document.getElementById('ingredients-list');
+recipeObj.ingredients.forEach(ingredient => {
+    const li = document.createElement('li');
+    li.textContent = ingredient;
+    ingredientsList.appendChild(li);
 });
