@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Range Counter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <main class="container">
+        <h1>Custom Range Counter</h1>
+        <form action="">
+            <div class="input-group">
+                <label>From: <span id="from-value">0</span></label>
+                <input type="number" id="from-input" min="0" max="100" value="0">
+            </div>
+            <div class="input-group">
+                <label>To: <span id="to-value">100</span></label>
+                <input type="number" id="to-input" min="0" max="100" value="100">
+            </div>
+            <button type="submit">Start</button>
+        </form>
+        <div id="range-counter"></div>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
