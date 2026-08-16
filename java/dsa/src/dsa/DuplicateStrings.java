@@ -41,8 +41,8 @@ public class DuplicateStrings {
  * "I want a Set, and I'll use HashSet to provide the actual functionality."
  * 
  * In simple terms:
-
-HashSet is being used because we need a collection that remembers unique strings and tells us when we're trying to add something that already exists.
+ * HashSet is being used because we need a collection that remembers unique strings 
+ * and tells us when we're trying to add something that already exists.
  *  */
 	
 
